@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Swift Note
-//
-//  Created by Aliia Vaganova on 9/26/20.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,7 +6,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func loadView() {
+        super.loadView()
+        view.backgroundColor = .systemYellow
+    }
 
 }
 
