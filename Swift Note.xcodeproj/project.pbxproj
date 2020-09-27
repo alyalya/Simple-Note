@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		819203712520BC4500F54AB8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819203702520BC4500F54AB8 /* TableViewController.swift */; };
+		819203742521484600F54AB8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819203732521484600F54AB8 /* NoteViewController.swift */; };
 		81D15FDF251F8F020032C584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FDE251F8F020032C584 /* AppDelegate.swift */; };
 		81D15FE1251F8F020032C584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FE0251F8F020032C584 /* SceneDelegate.swift */; };
-		81D15FE3251F8F020032C584 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FE2251F8F020032C584 /* ViewController.swift */; };
+		81D15FE3251F8F020032C584 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FE2251F8F020032C584 /* NavigationViewController.swift */; };
 		81D15FE8251F8F020032C584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D15FE7251F8F020032C584 /* Assets.xcassets */; };
 		81D15FEB251F8F020032C584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D15FE9251F8F020032C584 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		819203702520BC4500F54AB8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		819203732521484600F54AB8 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		81D15FDB251F8F020032C584 /* Swift Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D15FDE251F8F020032C584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D15FE0251F8F020032C584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		81D15FE2251F8F020032C584 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81D15FE2251F8F020032C584 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		81D15FE7251F8F020032C584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81D15FEA251F8F020032C584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81D15FEC251F8F020032C584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,10 +60,12 @@
 			children = (
 				81D15FDE251F8F020032C584 /* AppDelegate.swift */,
 				81D15FE0251F8F020032C584 /* SceneDelegate.swift */,
-				81D15FE2251F8F020032C584 /* ViewController.swift */,
+				81D15FE2251F8F020032C584 /* NavigationViewController.swift */,
 				81D15FE7251F8F020032C584 /* Assets.xcassets */,
 				81D15FE9251F8F020032C584 /* LaunchScreen.storyboard */,
 				81D15FEC251F8F020032C584 /* Info.plist */,
+				819203702520BC4500F54AB8 /* TableViewController.swift */,
+				819203732521484600F54AB8 /* NoteViewController.swift */,
 			);
 			path = "Swift Note";
 			sourceTree = "<group>";
@@ -133,9 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81D15FE3251F8F020032C584 /* ViewController.swift in Sources */,
+				81D15FE3251F8F020032C584 /* NavigationViewController.swift in Sources */,
 				81D15FDF251F8F020032C584 /* AppDelegate.swift in Sources */,
 				81D15FE1251F8F020032C584 /* SceneDelegate.swift in Sources */,
+				819203742521484600F54AB8 /* NoteViewController.swift in Sources */,
+				819203712520BC4500F54AB8 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
