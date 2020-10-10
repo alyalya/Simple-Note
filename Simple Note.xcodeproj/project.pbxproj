@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		816B583A2531339D004C26E2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B58392531339D004C26E2 /* TableViewCell.swift */; };
 		819203712520BC4500F54AB8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819203702520BC4500F54AB8 /* TableViewController.swift */; };
 		819203742521484600F54AB8 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819203732521484600F54AB8 /* NoteViewController.swift */; };
+		81C6CCC0252A7AC700B43E40 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C6CCBF252A7AC700B43E40 /* TableDataSource.swift */; };
 		81D15FDF251F8F020032C584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FDE251F8F020032C584 /* AppDelegate.swift */; };
 		81D15FE1251F8F020032C584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FE0251F8F020032C584 /* SceneDelegate.swift */; };
 		81D15FE3251F8F020032C584 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FE2251F8F020032C584 /* NavigationViewController.swift */; };
@@ -17,9 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		816B58392531339D004C26E2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		819203702520BC4500F54AB8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		819203732521484600F54AB8 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
-		81D15FDB251F8F020032C584 /* Swift Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81C6CCBF252A7AC700B43E40 /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
+		81D15FDB251F8F020032C584 /* Simple Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D15FDE251F8F020032C584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D15FE0251F8F020032C584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		81D15FE2251F8F020032C584 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +46,7 @@
 		81D15FD2251F8F020032C584 = {
 			isa = PBXGroup;
 			children = (
-				81D15FDD251F8F020032C584 /* Swift Note */,
+				81D15FDD251F8F020032C584 /* Simple Note */,
 				81D15FDC251F8F020032C584 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +54,12 @@
 		81D15FDC251F8F020032C584 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81D15FDB251F8F020032C584 /* Swift Note.app */,
+				81D15FDB251F8F020032C584 /* Simple Note.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		81D15FDD251F8F020032C584 /* Swift Note */ = {
+		81D15FDD251F8F020032C584 /* Simple Note */ = {
 			isa = PBXGroup;
 			children = (
 				81D15FDE251F8F020032C584 /* AppDelegate.swift */,
@@ -66,16 +70,18 @@
 				81D15FEC251F8F020032C584 /* Info.plist */,
 				819203702520BC4500F54AB8 /* TableViewController.swift */,
 				819203732521484600F54AB8 /* NoteViewController.swift */,
+				81C6CCBF252A7AC700B43E40 /* TableDataSource.swift */,
+				816B58392531339D004C26E2 /* TableViewCell.swift */,
 			);
-			path = "Swift Note";
+			path = "Simple Note";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81D15FDA251F8F020032C584 /* Swift Note */ = {
+		81D15FDA251F8F020032C584 /* Simple Note */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81D15FEF251F8F020032C584 /* Build configuration list for PBXNativeTarget "Swift Note" */;
+			buildConfigurationList = 81D15FEF251F8F020032C584 /* Build configuration list for PBXNativeTarget "Simple Note" */;
 			buildPhases = (
 				81D15FD7251F8F020032C584 /* Sources */,
 				81D15FD8251F8F020032C584 /* Frameworks */,
@@ -85,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = "Swift Note";
-			productName = "Swift Note";
-			productReference = 81D15FDB251F8F020032C584 /* Swift Note.app */;
+			name = "Simple Note";
+			productName = "Simple Note";
+			productReference = 81D15FDB251F8F020032C584 /* Simple Note.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 81D15FD6251F8F020032C584 /* Build configuration list for PBXProject "Swift Note" */;
+			buildConfigurationList = 81D15FD6251F8F020032C584 /* Build configuration list for PBXProject "Simple Note" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81D15FDA251F8F020032C584 /* Swift Note */,
+				81D15FDA251F8F020032C584 /* Simple Note */,
 			);
 		};
 /* End PBXProject section */
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C6CCC0252A7AC700B43E40 /* TableDataSource.swift in Sources */,
+				816B583A2531339D004C26E2 /* TableViewCell.swift in Sources */,
 				81D15FE3251F8F020032C584 /* NavigationViewController.swift in Sources */,
 				81D15FDF251F8F020032C584 /* AppDelegate.swift in Sources */,
 				81D15FE1251F8F020032C584 /* SceneDelegate.swift in Sources */,
@@ -283,12 +291,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Swift Note/Info.plist";
+				INFOPLIST_FILE = "Simple Note/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "aliia.Swift-Note";
+				PRODUCT_BUNDLE_IDENTIFIER = "aliia.Simple-Note";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -301,12 +309,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Swift Note/Info.plist";
+				INFOPLIST_FILE = "Simple Note/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "aliia.Swift-Note";
+				PRODUCT_BUNDLE_IDENTIFIER = "aliia.Simple-Note";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -316,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81D15FD6251F8F020032C584 /* Build configuration list for PBXProject "Swift Note" */ = {
+		81D15FD6251F8F020032C584 /* Build configuration list for PBXProject "Simple Note" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81D15FED251F8F020032C584 /* Debug */,
@@ -325,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81D15FEF251F8F020032C584 /* Build configuration list for PBXNativeTarget "Swift Note" */ = {
+		81D15FEF251F8F020032C584 /* Build configuration list for PBXNativeTarget "Simple Note" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81D15FF0251F8F020032C584 /* Debug */,

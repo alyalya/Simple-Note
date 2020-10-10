@@ -7,7 +7,7 @@ class NoteViewController: UIViewController {
     
     override func loadView() {
         self.view = UIView()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
