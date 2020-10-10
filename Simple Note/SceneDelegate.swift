@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.windowScene = windowScene
         
         self.window?.rootViewController = NavigationViewController(
-            rootViewController: TableViewController(style: .plain)
+            rootViewController: NotesTableViewController(style: .plain)
         )
         self.window?.makeKeyAndVisible()
     }

@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class NotesTableViewCell: UITableViewCell {
     private lazy var emptyTitle = makeEmptyTitle()
     
     override func prepareForReuse() {

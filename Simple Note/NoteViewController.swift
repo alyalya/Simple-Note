@@ -6,7 +6,7 @@ class NoteViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = UIView()
+        super.loadView()
         view.backgroundColor = .white
     }
     
