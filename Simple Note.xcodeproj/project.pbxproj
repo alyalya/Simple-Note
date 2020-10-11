@@ -45,6 +45,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		817464AB2533CD5600CC124B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				817464AE2533CD9100CC124B /* Note */,
+				817464AD2533CD8A00CC124B /* Notes */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		817464AC2533CD6900CC124B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81D15FDE251F8F020032C584 /* AppDelegate.swift */,
+				81D15FE0251F8F020032C584 /* SceneDelegate.swift */,
+				81D15FE2251F8F020032C584 /* NavigationViewController.swift */,
+				81D15FE7251F8F020032C584 /* Assets.xcassets */,
+				81D15FE9251F8F020032C584 /* LaunchScreen.storyboard */,
+				81D15FEC251F8F020032C584 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		817464AD2533CD8A00CC124B /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				81C6CCBF252A7AC700B43E40 /* NotesTableDataSource.swift */,
+				816B58392531339D004C26E2 /* NotesTableViewCell.swift */,
+				819203702520BC4500F54AB8 /* NotesTableViewController.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		817464AE2533CD9100CC124B /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				815D347425322A1E0057FDFF /* NoteData.swift */,
+				819203732521484600F54AB8 /* NoteViewController.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
 		81D15FD2251F8F020032C584 = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +105,8 @@
 		81D15FDD251F8F020032C584 /* Simple Note */ = {
 			isa = PBXGroup;
 			children = (
-				81D15FDE251F8F020032C584 /* AppDelegate.swift */,
-				81D15FE0251F8F020032C584 /* SceneDelegate.swift */,
-				81D15FE2251F8F020032C584 /* NavigationViewController.swift */,
-				81D15FE7251F8F020032C584 /* Assets.xcassets */,
-				81D15FE9251F8F020032C584 /* LaunchScreen.storyboard */,
-				81D15FEC251F8F020032C584 /* Info.plist */,
-				819203702520BC4500F54AB8 /* NotesTableViewController.swift */,
-				819203732521484600F54AB8 /* NoteViewController.swift */,
-				81C6CCBF252A7AC700B43E40 /* NotesTableDataSource.swift */,
-				816B58392531339D004C26E2 /* NotesTableViewCell.swift */,
-				815D347425322A1E0057FDFF /* NoteData.swift */,
+				817464AC2533CD6900CC124B /* Supporting Files */,
+				817464AB2533CD5600CC124B /* Modules */,
 			);
 			path = "Simple Note";
 			sourceTree = "<group>";
@@ -295,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Simple Note/Info.plist";
+				INFOPLIST_FILE = "Simple Note/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Simple Note/Info.plist";
+				INFOPLIST_FILE = "Simple Note/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
