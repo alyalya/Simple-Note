@@ -4,14 +4,18 @@ class NotesTableViewController: UITableViewController {
     let data: Array<NoteData?> = [
         NoteData(title: "First Note", text: "About Swift"),
         NoteData(title: "Second Note", text: "About UIKit"),
+        NoteData(title: "Third Note", text: "About UIKit"),
     ]
     
-    private lazy var noteViewController = NoteViewController()
-    private lazy var notesDataSource = NotesTableDataSource()
-
+    private lazy var noteViewController = makeNoteViewController()
+    private lazy var notesDataSource = makeNotesDataSource()
     
     override init(style: UITableView.Style) {
         super.init(style: style)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc func navigateToNote() {
@@ -21,31 +25,33 @@ class NotesTableViewController: UITableViewController {
         )
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureNavBar()
-        configureStub()
-        configureView()
-    }
-    
     override func loadView() {
         super.loadView()
         configureLayout()
+        if (data.count == 0) {
+            configureEmpty()
+        } else {
+            tableView.backgroundView = nil
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureNavBar()
+        configureView()
+    }
+    
+    func makeNotesDataSource() -> NotesTableDataSource {
+        return NotesTableDataSource(data: data)
+    }
+    
+    func makeNoteViewController() -> NoteViewController {
+        return NoteViewController()
     }
 }
 
 // MARK: - UI Setup
 extension NotesTableViewController {
-    func configureStub() {
-        if tableView.numberOfRows(inSection: 0) == 0 {
-            // добавить ячейку со стабом
-        }
-    }
-    
     func configureView() {
         title = "Simple Note"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -54,6 +60,15 @@ extension NotesTableViewController {
             target: self,
             action: #selector(navigateToNote)
         )
+    }
+    
+    func configureEmpty() {
+        let emptyTitle = UILabel()
+        emptyTitle.text = "Add your first note"
+        emptyTitle.textColor = .lightGray
+        emptyTitle.font = UIFont.systemFont(ofSize: 35)
+        emptyTitle.textAlignment = .center
+        tableView.backgroundView = emptyTitle
     }
     
     func configureNavBar() {

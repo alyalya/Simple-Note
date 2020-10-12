@@ -70,6 +70,7 @@
 		817464AD2533CD8A00CC124B /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				815D347425322A1E0057FDFF /* NoteData.swift */,
 				81C6CCBF252A7AC700B43E40 /* NotesTableDataSource.swift */,
 				816B58392531339D004C26E2 /* NotesTableViewCell.swift */,
 				819203702520BC4500F54AB8 /* NotesTableViewController.swift */,
@@ -80,7 +81,6 @@
 		817464AE2533CD9100CC124B /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				815D347425322A1E0057FDFF /* NoteData.swift */,
 				819203732521484600F54AB8 /* NoteViewController.swift */,
 			);
 			path = Note;

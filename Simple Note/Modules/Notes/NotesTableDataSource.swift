@@ -1,13 +1,17 @@
 import UIKit
 
 class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+    private let data: [NoteData?]
+    
+    init(data: [NoteData?]) {
+        self.data = data
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let label = UILabel()
-        label.text = "Add your first note"
         let createMockCell: () -> UITableViewCell = {
             return tableView.dequeueReusableCell(
                 withIdentifier: "TableViewCell",
@@ -18,7 +22,7 @@ class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                 withIdentifier: "TableViewCell",
                 for: indexPath
         ) as? NotesTableViewCell else { return createMockCell() }
-        cell.configure()
+        cell.setup(data: data[indexPath.row])
         
         return cell
     }
