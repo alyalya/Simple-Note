@@ -17,6 +17,8 @@
 		81D15FE3251F8F020032C584 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D15FE2251F8F020032C584 /* NavigationViewController.swift */; };
 		81D15FE8251F8F020032C584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D15FE7251F8F020032C584 /* Assets.xcassets */; };
 		81D15FEB251F8F020032C584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D15FE9251F8F020032C584 /* LaunchScreen.storyboard */; };
+		81F12F782534D70300228D8C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F12F772534D70300228D8C /* DataService.swift */; };
+		81F12F7C25350D6B00228D8C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F12F7B25350D6B00228D8C /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		81D15FE7251F8F020032C584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81D15FEA251F8F020032C584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81D15FEC251F8F020032C584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81F12F772534D70300228D8C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		81F12F7B25350D6B00228D8C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +109,28 @@
 		81D15FDD251F8F020032C584 /* Simple Note */ = {
 			isa = PBXGroup;
 			children = (
+				81F12F7A25350D4C00228D8C /* Helpers */,
 				817464AC2533CD6900CC124B /* Supporting Files */,
+				81F12F752534D6AF00228D8C /* Services */,
 				817464AB2533CD5600CC124B /* Modules */,
 			);
 			path = "Simple Note";
+			sourceTree = "<group>";
+		};
+		81F12F752534D6AF00228D8C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				81F12F772534D70300228D8C /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		81F12F7A25350D4C00228D8C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81F12F7B25350D6B00228D8C /* CustomTextField.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +202,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F12F782534D70300228D8C /* DataService.swift in Sources */,
 				81C6CCC0252A7AC700B43E40 /* NotesTableDataSource.swift in Sources */,
 				815D347525322A1E0057FDFF /* NoteData.swift in Sources */,
 				816B583A2531339D004C26E2 /* NotesTableViewCell.swift in Sources */,
+				81F12F7C25350D6B00228D8C /* CustomTextField.swift in Sources */,
 				81D15FE3251F8F020032C584 /* NavigationViewController.swift in Sources */,
 				81D15FDF251F8F020032C584 /* AppDelegate.swift in Sources */,
 				81D15FE1251F8F020032C584 /* SceneDelegate.swift in Sources */,

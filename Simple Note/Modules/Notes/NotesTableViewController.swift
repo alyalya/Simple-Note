@@ -1,14 +1,9 @@
 import UIKit
 
 class NotesTableViewController: UITableViewController {
-    let data: Array<NoteData?> = [
-        NoteData(title: "First Note", text: "About Swift"),
-        NoteData(title: "Second Note", text: "About UIKit"),
-        NoteData(title: "Third Note", text: "About UIKit"),
-    ]
-    
     private lazy var noteViewController = makeNoteViewController()
     private lazy var notesDataSource = makeNotesDataSource()
+    private lazy var dataService = DataService.shared
     
     override init(style: UITableView.Style) {
         super.init(style: style)
@@ -28,7 +23,7 @@ class NotesTableViewController: UITableViewController {
     override func loadView() {
         super.loadView()
         configureLayout()
-        if (data.count == 0) {
+        if (dataService.data.count == 0) {
             configureEmpty()
         } else {
             tableView.backgroundView = nil
@@ -42,7 +37,7 @@ class NotesTableViewController: UITableViewController {
     }
     
     func makeNotesDataSource() -> NotesTableDataSource {
-        return NotesTableDataSource(data: data)
+        return NotesTableDataSource(data: dataService.data)
     }
     
     func makeNoteViewController() -> NoteViewController {

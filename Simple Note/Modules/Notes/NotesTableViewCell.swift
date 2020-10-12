@@ -26,6 +26,7 @@ class NotesTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: 30),
             label.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }

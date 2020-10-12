@@ -22,6 +22,7 @@ class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                 withIdentifier: "TableViewCell",
                 for: indexPath
         ) as? NotesTableViewCell else { return createMockCell() }
+        cell.selectionStyle = .none
         cell.setup(data: data[indexPath.row])
         
         return cell
