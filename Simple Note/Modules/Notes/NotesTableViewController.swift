@@ -50,7 +50,7 @@ extension NotesTableViewController {
     func configureView() {
         title = "Simple Note"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "plus.circle.fill"),
+            image: UIImage(systemName: "plus.square.on.square"),
             style: .done,
             target: self,
             action: #selector(navigateToNote)
