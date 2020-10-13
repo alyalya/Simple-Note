@@ -2,6 +2,8 @@ import UIKit
 
 class NoteViewController: UIViewController {
     private lazy var titleField = makeTitleField()
+    private lazy var textView = makeTextView()
+    private lazy var buttonView = makeButtonView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,17 +28,53 @@ class NoteViewController: UIViewController {
         input.font = .systemFont(ofSize: 25)
         return input
     }
+    
+    func makeTextView() -> UITextView {
+        let textArea = UITextView()
+        textArea.layer.borderWidth = 1
+        textArea.layer.borderColor = UIColor.gray.cgColor
+        textArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textArea.font = .systemFont(ofSize: 25)
+        textArea.layer.cornerRadius = 5
+        return textArea
+    }
+    
+    func makeButtonView() -> UIButton {
+        let button = UIButton()
+        button.layer.cornerRadius = 5
+        button.backgroundColor = .systemGreen
+        button.setTitle("Save", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        return button
+    }
 }
 
 private extension NoteViewController {
     func setupLayout() {
         view.addSubview(titleField)
+        view.addSubview(textView)
+        view.addSubview(buttonView)
+        
+        textView.translatesAutoresizingMaskIntoConstraints = false
         titleField.translatesAutoresizingMaskIntoConstraints = false
+        buttonView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             titleField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            titleField.heightAnchor.constraint(equalToConstant: 40)
+            titleField.heightAnchor.constraint(equalToConstant: 40),
+            
+            textView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10),
+            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            textView.heightAnchor.constraint(equalToConstant: 140),
+            
+            buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonView.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10),
+            buttonView.widthAnchor.constraint(equalToConstant: 100),
+            buttonView.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }
