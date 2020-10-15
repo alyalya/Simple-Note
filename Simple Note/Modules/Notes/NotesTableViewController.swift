@@ -4,9 +4,15 @@ class NotesTableViewController: UITableViewController {
   private lazy var noteViewController = makeNoteViewController()
   private lazy var notesDataSource = makeNotesDataSource()
   private lazy var dataService = DataService.shared
+  var data: [NoteData?]? {
+    didSet {
+      tableView.reloadData()
+    }
+  }
   
   override init(style: UITableView.Style) {
     super.init(style: style)
+    self.data = dataService.data
   }
   
   required init?(coder: NSCoder) {

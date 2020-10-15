@@ -4,6 +4,7 @@ class NoteViewController: UIViewController {
   private lazy var titleField = makeTitleField()
   private lazy var textView = makeTextView()
   private lazy var buttonView = makeButtonView()
+  private lazy var dataService = DataService.shared
   
   init() {
     super.init(nibName: nil, bundle: nil)
@@ -22,6 +23,12 @@ class NoteViewController: UIViewController {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func didMove(toParent parent: UIViewController?) {
+    let parentView = parent as? NotesTableViewController
+    parentView?.data = dataService.data
+    parentView?.tableView.reloadData()
   }
   
   func makeTitleField() -> CustomTextField {
@@ -55,8 +62,11 @@ class NoteViewController: UIViewController {
   }
   
   @objc func handleButtonPress() {
-    print(titleField.text)
-    print(textView.text)
+    guard let titleFieldText = titleField.text,
+          let textViewText = textView.text else {
+      return
+    }
+    dataService.data.append(NoteData(title: titleFieldText, text: textViewText))
   }
 }
 
