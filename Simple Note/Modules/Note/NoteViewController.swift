@@ -4,7 +4,7 @@ class NoteViewController: UIViewController {
   private lazy var titleField = makeTitleField()
   private lazy var textView = makeTextView()
   private lazy var buttonView = makeButtonView()
-  private lazy var dataService = DataService.shared
+  private let dataService = DataService.shared
   
   init() {
     super.init(nibName: nil, bundle: nil)
@@ -14,21 +14,19 @@ class NoteViewController: UIViewController {
   override func loadView() {
     super.loadView()
     view.backgroundColor = .white
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
     buttonView.addTarget(
       self,
       action: #selector(handleButtonPress),
       for: .touchUpInside
     )
   }
-  
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-  
-  override func didMove(toParent parent: UIViewController?) {
-    let parentView = parent as? NotesTableViewController
-    parentView?.data = dataService.data
-    parentView?.tableView.reloadData()
   }
   
   func makeTitleField() -> CustomTextField {
@@ -45,7 +43,12 @@ class NoteViewController: UIViewController {
     let textArea = UITextView()
     textArea.layer.borderWidth = 1
     textArea.layer.borderColor = UIColor.gray.cgColor
-    textArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    textArea.textContainerInset = UIEdgeInsets(
+      top: 10,
+      left: 10,
+      bottom: 10,
+      right: 10
+    )
     textArea.font = .systemFont(ofSize: 25)
     textArea.layer.cornerRadius = 5
     return textArea
@@ -63,9 +66,7 @@ class NoteViewController: UIViewController {
   
   @objc func handleButtonPress() {
     guard let titleFieldText = titleField.text,
-          let textViewText = textView.text else {
-      return
-    }
+          let textViewText = textView.text else { return }
     dataService.data.append(NoteData(title: titleFieldText, text: textViewText))
   }
 }

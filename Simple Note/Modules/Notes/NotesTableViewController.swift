@@ -4,29 +4,23 @@ class NotesTableViewController: UITableViewController {
   private lazy var noteViewController = makeNoteViewController()
   private lazy var notesDataSource = makeNotesDataSource()
   private lazy var dataService = DataService.shared
-  var data: [NoteData?]? {
-    didSet {
-      tableView.reloadData()
-    }
-  }
-  
-  override init(style: UITableView.Style) {
+
+  override init(style: UITableView.Style) { // работа с данными
     super.init(style: style)
-    self.data = dataService.data
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
-  @objc func navigateToNote() {
+  @objc func navigateToNoteCreating() {
     navigationController?.pushViewController(
       noteViewController,
       animated: true
     )
   }
   
-  override func loadView() {
+  override func loadView() { // настройка фона
     super.loadView()
     configureLayout()
     if (dataService.data.count == 0) {
@@ -36,18 +30,23 @@ class NotesTableViewController: UITableViewController {
     }
   }
   
-  override func viewDidLoad() {
+  override func viewDidLoad() { // настройка UI
     super.viewDidLoad()
     configureNavBar()
     configureView()
   }
-  
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
+  }
+
   func makeNotesDataSource() -> NotesTableDataSource {
-    return NotesTableDataSource(data: dataService.data)
+    NotesTableDataSource()
   }
   
   func makeNoteViewController() -> NoteViewController {
-    return NoteViewController()
+    NoteViewController()
   }
 }
 
@@ -59,7 +58,7 @@ extension NotesTableViewController {
       image: UIImage(systemName: "plus.square.on.square"),
       style: .done,
       target: self,
-      action: #selector(navigateToNote)
+      action: #selector(navigateToNoteCreating)
     )
   }
   
@@ -83,6 +82,9 @@ extension NotesTableViewController {
     tableView.dataSource = notesDataSource
     tableView.delegate = notesDataSource
     
-    tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+    tableView.register(
+      NotesTableViewCell.self,
+      forCellReuseIdentifier: "TableViewCell"
+    )
   }
 }

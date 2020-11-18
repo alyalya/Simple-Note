@@ -1,19 +1,19 @@
 import UIKit
 
 class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-  private let data: [NoteData?]
+  private let dataService = DataService.shared
   
-  init(data: [NoteData?]) {
-    self.data = data
-  }
+  func tableView(
+    _ tableView: UITableView,
+    numberOfRowsInSection section: Int
+  ) -> Int { dataService.data.count }
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    data.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
     let createMockCell: () -> UITableViewCell = {
-      return tableView.dequeueReusableCell(
+      tableView.dequeueReusableCell(
         withIdentifier: "TableViewCell",
         for: indexPath
       )
@@ -23,7 +23,7 @@ class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
       for: indexPath
     ) as? NotesTableViewCell else { return createMockCell() }
     cell.selectionStyle = .none
-    cell.setup(data: data[indexPath.row])
+    cell.setup(data: dataService.data[indexPath.row])
     
     return cell
   }
