@@ -2,7 +2,12 @@ import UIKit
 
 class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
   private let dataService = DataService.shared
-  
+  weak private var navigationController: UINavigationController?
+
+  init(navigationController: UINavigationController?) {
+    self.navigationController = navigationController
+  }
+
   func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection section: Int
@@ -26,5 +31,16 @@ class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     cell.setup(data: dataService.data[indexPath.row])
     
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // создаешь контроллер
+    // в его какое-то свойство кладешь данные: controller.data = data
+    // переходишь на него
+    guard let noteData = dataService.data[indexPath.row] else { return }
+    let noteViewController = NoteViewController(
+      data: noteData
+    )
+    navigationController?.pushViewController(noteViewController, animated: true)
   }
 }
