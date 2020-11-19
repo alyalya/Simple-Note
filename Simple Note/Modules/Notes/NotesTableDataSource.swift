@@ -34,9 +34,6 @@ class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // создаешь контроллер
-    // в его какое-то свойство кладешь данные: controller.data = data
-    // переходишь на него
     guard let noteData = dataService.data[indexPath.row] else { return }
     let noteViewController = NoteViewController(
       data: noteData
