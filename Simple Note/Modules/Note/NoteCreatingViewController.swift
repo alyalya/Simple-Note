@@ -10,6 +10,10 @@ class NoteCreatingViewController: UIViewController {
     super.init(nibName: nil, bundle: nil)
     setupLayout()
   }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func loadView() {
     super.loadView()
@@ -23,10 +27,6 @@ class NoteCreatingViewController: UIViewController {
       action: #selector(handleButtonPress),
       for: .touchUpInside
     )
-  }
-
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
   func makeTitleField() -> CustomTextField {
@@ -83,13 +83,13 @@ private extension NoteCreatingViewController {
     
     NSLayoutConstraint.activate([
       titleField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-      titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-      titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+      titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       titleField.heightAnchor.constraint(equalToConstant: 40),
       
       textView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10),
-      textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-      textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+      textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       textView.heightAnchor.constraint(equalToConstant: 140),
       
       buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
