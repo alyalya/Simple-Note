@@ -1,7 +1,8 @@
 import UIKit
 
 class NotesTableViewController: UITableViewController {
-  private lazy var noteViewController = makeNoteViewController()
+  private lazy var noteCreatingViewController =
+    makeNoteCreatingViewController()
   private lazy var notesDataSource = makeNotesDataSource()
   private lazy var dataService = DataService.shared
 
@@ -15,7 +16,7 @@ class NotesTableViewController: UITableViewController {
   
   @objc func navigateToNoteCreating() {
     navigationController?.pushViewController(
-      noteViewController,
+      noteCreatingViewController,
       animated: true
     )
   }
@@ -42,11 +43,11 @@ class NotesTableViewController: UITableViewController {
   }
 
   func makeNotesDataSource() -> NotesTableDataSource {
-    NotesTableDataSource()
+    NotesTableDataSource(navigationController: navigationController)
   }
   
-  func makeNoteViewController() -> NoteViewController {
-    NoteViewController()
+  func makeNoteCreatingViewController() -> NoteCreatingViewController {
+    NoteCreatingViewController()
   }
 }
 
