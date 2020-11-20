@@ -47,7 +47,7 @@ class NotesTableViewController: UITableViewController {
   }
   
   func makeNoteCreatingViewController() -> NoteCreatingViewController {
-    NoteCreatingViewController()
+    NoteCreatingViewController(initialText: nil)
   }
 }
 
@@ -56,7 +56,7 @@ extension NotesTableViewController {
   func configureView() {
     title = "Simple Note"
     navigationItem.rightBarButtonItem = UIBarButtonItem(
-      image: UIImage(systemName: "plus.square.on.square"),
+      image: UIImage(systemName: "plus.circle"),
       style: .done,
       target: self,
       action: #selector(navigateToNoteCreating)

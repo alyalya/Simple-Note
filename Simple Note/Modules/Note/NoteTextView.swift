@@ -1,7 +1,10 @@
 import UIKit
 
 class NoteTextView: UITextView {
-	init() {
+	private var initialText: String?
+
+	init(initialText: String?) {
+		self.initialText = initialText
 		super.init(frame: .zero, textContainer: nil)
 		configure()
 	}
@@ -11,6 +14,7 @@ class NoteTextView: UITextView {
 	}
 
 	func configure() {
+		delegate = self
 		layer.borderWidth = 1
 		layer.borderColor = UIColor.gray.cgColor
 		textContainerInset = UIEdgeInsets(
@@ -22,8 +26,9 @@ class NoteTextView: UITextView {
 		font = .systemFont(ofSize: 25)
 		layer.cornerRadius = 5
 		text = "Add your note's text here"
-		textColor = UIColor.lightGray.withAlphaComponent(0.7)
-		delegate = self
+		if initialText != nil {
+			textColor = .black
+		} else { textColor = UIColor.lightGray.withAlphaComponent(0.8) }
 	}
 }
 

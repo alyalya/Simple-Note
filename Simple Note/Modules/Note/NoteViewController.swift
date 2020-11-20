@@ -19,6 +19,26 @@ class NoteViewController: UIViewController {
 		super.loadView()
 		view.backgroundColor = .white
 	}
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			image: UIImage(systemName: "pencil.circle"),
+			style: .done,
+			target: self,
+			action: #selector(editNote)
+		)
+	}
+
+	@objc func editNote() {
+		let editingViewController = NoteCreatingViewController(initialText: data.text)
+		editingViewController.titleField.text = data.title
+		editingViewController.textView.text = data.text
+		navigationController?.pushViewController(
+			editingViewController,
+			animated: true
+		)
+	}
 }
 
 // MARK: - Layout

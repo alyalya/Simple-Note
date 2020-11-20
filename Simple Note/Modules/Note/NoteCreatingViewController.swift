@@ -1,12 +1,14 @@
 import UIKit
 
 class NoteCreatingViewController: UIViewController {
-  private lazy var titleField = makeTitleField()
-  private lazy var textView = makeTextView()
+  lazy var titleField = makeTitleField()
+  lazy var textView = makeTextView()
   private lazy var buttonView = makeButtonView()
   private let dataService = DataService.shared
+  private let initialText: String?
 
-  init() {
+  init(initialText: String?) {
+    self.initialText = initialText
     super.init(nibName: nil, bundle: nil)
     setupLayout()
   }
@@ -40,7 +42,7 @@ class NoteCreatingViewController: UIViewController {
   }
 
   func makeTextView() -> NoteTextView {
-    NoteTextView()
+    NoteTextView(initialText: initialText)
   }
 
   func makeButtonView() -> CustomButton {
