@@ -21,6 +21,7 @@
 		81F12F782534D70300228D8C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F12F772534D70300228D8C /* DataService.swift */; };
 		81F12F7C25350D6B00228D8C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F12F7B25350D6B00228D8C /* CustomTextField.swift */; };
 		CA5EACE9395A94EC72A17C39 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EA60B511BB6A3C28250F7 /* NoteViewController.swift */; };
+		CA5EAEC79D3DF0B82D238457 /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EAA78B01A71473D08A421 /* NoteTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		81F12F772534D70300228D8C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		81F12F7B25350D6B00228D8C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CA5EA60B511BB6A3C28250F7 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		CA5EAA78B01A71473D08A421 /* NoteTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				819203732521484600F54AB8 /* NoteCreatingViewController.swift */,
 				816927202538DC590098666F /* CustomButton.swift */,
 				CA5EA60B511BB6A3C28250F7 /* NoteViewController.swift */,
+				CA5EAA78B01A71473D08A421 /* NoteTextView.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				819203742521484600F54AB8 /* NoteCreatingViewController.swift in Sources */,
 				819203712520BC4500F54AB8 /* NotesTableViewController.swift in Sources */,
 				CA5EACE9395A94EC72A17C39 /* NoteViewController.swift in Sources */,
+				CA5EAEC79D3DF0B82D238457 /* NoteTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
