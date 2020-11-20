@@ -5,7 +5,7 @@ class NoteCreatingViewController: UIViewController {
   private lazy var textView = makeTextView()
   private lazy var buttonView = makeButtonView()
   private let dataService = DataService.shared
-  
+
   init() {
     super.init(nibName: nil, bundle: nil)
     setupLayout()
@@ -14,7 +14,7 @@ class NoteCreatingViewController: UIViewController {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   override func loadView() {
     super.loadView()
     view.backgroundColor = .white
@@ -28,7 +28,7 @@ class NoteCreatingViewController: UIViewController {
       for: .touchUpInside
     )
   }
-  
+
   func makeTitleField() -> CustomTextField {
     let input = CustomTextField()
     input.layer.borderWidth = 1
@@ -38,22 +38,11 @@ class NoteCreatingViewController: UIViewController {
     input.font = .systemFont(ofSize: 25)
     return input
   }
-  
-  func makeTextView() -> UITextView {
-    let textArea = UITextView()
-    textArea.layer.borderWidth = 1
-    textArea.layer.borderColor = UIColor.gray.cgColor
-    textArea.textContainerInset = UIEdgeInsets(
-      top: 10,
-      left: 10,
-      bottom: 10,
-      right: 10
-    )
-    textArea.font = .systemFont(ofSize: 25)
-    textArea.layer.cornerRadius = 5
-    return textArea
+
+  func makeTextView() -> NoteTextView {
+    NoteTextView()
   }
-  
+
   func makeButtonView() -> CustomButton {
     let button = CustomButton()
     button.layer.cornerRadius = 5
@@ -63,7 +52,7 @@ class NoteCreatingViewController: UIViewController {
     button.titleLabel?.font = .systemFont(ofSize: 20)
     return button
   }
-  
+
   @objc func handleButtonPress() {
     guard let titleFieldText = titleField.text,
           let textViewText = textView.text else { return }
@@ -76,26 +65,28 @@ private extension NoteCreatingViewController {
     view.addSubview(titleField)
     view.addSubview(textView)
     view.addSubview(buttonView)
-    
+
     textView.translatesAutoresizingMaskIntoConstraints = false
     titleField.translatesAutoresizingMaskIntoConstraints = false
     buttonView.translatesAutoresizingMaskIntoConstraints = false
-    
-    NSLayoutConstraint.activate([
-      titleField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-      titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      titleField.heightAnchor.constraint(equalToConstant: 40),
-      
-      textView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10),
-      textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      textView.heightAnchor.constraint(equalToConstant: 140),
-      
-      buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      buttonView.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10),
-      buttonView.widthAnchor.constraint(equalToConstant: 100),
-      buttonView.heightAnchor.constraint(equalToConstant: 40)
-    ])
+
+    NSLayoutConstraint.activate(
+      [
+        titleField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+        titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        titleField.heightAnchor.constraint(equalToConstant: 40),
+
+        textView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10),
+        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        textView.heightAnchor.constraint(equalToConstant: 140),
+
+        buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        buttonView.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10),
+        buttonView.widthAnchor.constraint(equalToConstant: 100),
+        buttonView.heightAnchor.constraint(equalToConstant: 40)
+      ]
+    )
   }
 }
