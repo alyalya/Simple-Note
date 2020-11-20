@@ -1,4 +1,5 @@
 struct NoteData {
-  let title: String
-  let text: String
+  let id: Int
+  var title: String
+  var text: String
 }

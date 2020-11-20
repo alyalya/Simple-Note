@@ -1,10 +1,11 @@
 class DataService {
   var data: Array<NoteData?> = [
-    NoteData(title: "First Note", text: "About Swift"),
-    NoteData(title: "Second Note", text: "About UIKit"),
+    NoteData(id: 0, title: "First Note", text: "About Swift"),
+    NoteData(id: 1, title: "Second Note", text: "About UIKit"),
     NoteData(
+      id: 2,
       title: "Third Note",
-      text: "ну ничего страшного пау пау пау пау пау пау пау пау ну ничего страшного пау пау пау пау пау пау пау пау"
+      text: "ну ничего страшного пау пау пау пау пау пау пау пау"
     ),
   ]
   

@@ -58,7 +58,24 @@ class NoteCreatingViewController: UIViewController {
   @objc func handleButtonPress() {
     guard let titleFieldText = titleField.text,
           let textViewText = textView.text else { return }
-    dataService.data.append(NoteData(title: titleFieldText, text: textViewText))
+    let id = dataService.data.count + 1
+    if let initialText = initialText {
+      let index = dataService.data.firstIndex(where: {
+        guard let item = $0 else { return false }
+        return item.text == initialText
+      })
+      guard let unwrappedIndex = index else { return }
+      dataService.data[unwrappedIndex]?.title = titleFieldText
+      dataService.data[unwrappedIndex]?.text = textViewText
+    } else {
+      dataService.data.append(
+        NoteData(
+          id: id,
+          title: titleFieldText,
+          text: textViewText
+        )
+      )
+    }
   }
 }
 
