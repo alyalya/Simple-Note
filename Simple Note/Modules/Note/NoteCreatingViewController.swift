@@ -72,7 +72,7 @@ private extension NoteCreatingViewController {
 
     NSLayoutConstraint.activate(
       [
-        titleField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+        titleField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
         titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         titleField.heightAnchor.constraint(equalToConstant: 40),
