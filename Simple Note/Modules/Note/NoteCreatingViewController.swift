@@ -1,12 +1,18 @@
 import UIKit
 
 class NoteCreatingViewController: UIViewController {
+  // UI
   lazy var titleField = makeTitleField()
-  lazy var textView = makeTextView()
-  private lazy var buttonView = makeButtonView()
+  lazy var textView = NoteTextView(initialText: initialText)
+  private lazy var button = makeButton()
+
+  // Services
   private let dataService = DataService.shared
+
+  // Data
   private let initialText: String?
 
+  // Life Cycle
   init(initialText: String?) {
     self.initialText = initialText
     super.init(nibName: nil, bundle: nil)
@@ -24,11 +30,19 @@ class NoteCreatingViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    buttonView.addTarget(
-      self,
-      action: #selector(handleButtonPress),
-      for: .touchUpInside
-    )
+    makeNavBar()
+  }
+
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    clearScreen()
+  }
+}
+
+// UI
+private extension NoteCreatingViewController {
+  func makeNavBar() {
+    navigationItem.largeTitleDisplayMode = .never
   }
 
   func makeTitleField() -> CustomTextField {
@@ -41,17 +55,18 @@ class NoteCreatingViewController: UIViewController {
     return input
   }
 
-  func makeTextView() -> NoteTextView {
-    NoteTextView(initialText: initialText)
-  }
-
-  func makeButtonView() -> CustomButton {
+  func makeButton() -> CustomButton {
     let button = CustomButton()
     button.layer.cornerRadius = 5
     button.backgroundColor = .systemGreen
     button.setTitle("Save", for: .normal)
     button.setTitleColor(.white, for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 20)
+
+    button.addTarget(self,
+                     action: #selector(handleButtonPress),
+                     for: .touchUpInside)
+
     return button
   }
 
@@ -59,36 +74,45 @@ class NoteCreatingViewController: UIViewController {
     guard let titleFieldText = titleField.text,
           let textViewText = textView.text else { return }
     dataService.data.append(NoteData(title: titleFieldText, text: textViewText))
+    showAlert()
+    clearScreen()
   }
-}
 
-private extension NoteCreatingViewController {
+  func showAlert() {
+    let alert = UIAlertController(title: "🥳", message: "Твоя заметка сохранена", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "🤝", style: .default, handler: nil))
+    present(alert, animated: true, completion: nil)
+  }
+
+  func clearScreen() {
+    titleField.text?.removeAll()
+    textView.text.removeAll()
+    titleField.becomeFirstResponder()
+    textView.textViewDidEndEditing(textView)
+  }
+
   func setupLayout() {
     view.addSubview(titleField)
     view.addSubview(textView)
-    view.addSubview(buttonView)
+    view.addSubview(button)
 
-    textView.translatesAutoresizingMaskIntoConstraints = false
-    titleField.translatesAutoresizingMaskIntoConstraints = false
-    buttonView.translatesAutoresizingMaskIntoConstraints = false
+    view.removeSubviewsNativeConstraints()
 
-    NSLayoutConstraint.activate(
-      [
-        titleField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-        titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-        titleField.heightAnchor.constraint(equalToConstant: 40),
+    NSLayoutConstraint.activate {
+      titleField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+      titleField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+      titleField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+      titleField.heightAnchor.constraint(equalToConstant: 40)
 
-        textView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10),
-        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-        textView.heightAnchor.constraint(equalToConstant: 140),
+      textView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10)
+      textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+      textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+      textView.heightAnchor.constraint(equalToConstant: 140)
 
-        buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        buttonView.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10),
-        buttonView.widthAnchor.constraint(equalToConstant: 100),
-        buttonView.heightAnchor.constraint(equalToConstant: 40)
-      ]
-    )
+      button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+      button.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 10)
+      button.widthAnchor.constraint(equalToConstant: 100)
+      button.heightAnchor.constraint(equalToConstant: 40)
+    }
   }
 }

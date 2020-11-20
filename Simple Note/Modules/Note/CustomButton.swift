@@ -2,9 +2,9 @@ import UIKit
 
 class CustomButton: UIButton {
   override var isHighlighted: Bool {
-    didSet {
+    willSet(state) {
       backgroundColor =
-      isHighlighted ? UIColor.systemGreen.withAlphaComponent(0.75)
+      state ? UIColor.systemGreen.withAlphaComponent(0.75)
       : .systemGreen
     }
   }
