@@ -100,6 +100,24 @@ private extension NoteCreatingViewController {
     let alert = UIAlertController(title: "🥳", message: "Твоя заметка сохранена", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "🤝", style: .default, handler: nil))
     present(alert, animated: true, completion: nil)
+    let id = dataService.data.count + 1
+    if let initialText = initialText {
+      let index = dataService.data.firstIndex(where: {
+        guard let item = $0 else { return false }
+        return item.text == initialText
+      })
+      guard let unwrappedIndex = index else { return }
+      dataService.data[unwrappedIndex]?.title = titleFieldText
+      dataService.data[unwrappedIndex]?.text = textViewText
+    } else {
+      dataService.data.append(
+        NoteData(
+          id: id,
+          title: titleFieldText,
+          text: textViewText
+        )
+      )
+    }
   }
 
   func clearScreen() {
