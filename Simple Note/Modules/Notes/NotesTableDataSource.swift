@@ -8,36 +8,39 @@ class NotesTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     self.navigationController = navigationController
   }
 
-  func tableView(
-    _ tableView: UITableView,
-    numberOfRowsInSection section: Int
-  ) -> Int { dataService.data.count }
-  
+  func tableView(_ tableView: UITableView,
+                 numberOfRowsInSection section: Int) -> Int {
+    dataService.data.count
+  }
+
   func tableView(
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    let createMockCell: () -> UITableViewCell = {
-      tableView.dequeueReusableCell(
-        withIdentifier: "TableViewCell",
-        for: indexPath
-      )
+    if let cell = tableView.dequeueReusableCell(
+        withIdentifier: NotesTableViewCell.id,
+        for: indexPath) as? NotesTableViewCell {
+      cell.selectionStyle = .none
+      cell.setup(data: dataService.data[indexPath.row])
+
+      return cell
+    } else {
+      return makeMockCell(for: tableView, indexPath)
     }
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: "TableViewCell",
-      for: indexPath
-    ) as? NotesTableViewCell else { return createMockCell() }
-    cell.selectionStyle = .none
-    cell.setup(data: dataService.data[indexPath.row])
-    
-    return cell
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let noteData = dataService.data[indexPath.row] else { return }
-    let noteViewController = NoteViewController(
-      data: noteData
-    )
+    let noteViewController = NoteViewController(data: noteData)
     navigationController?.pushViewController(noteViewController, animated: true)
+  }
+}
+
+private extension NotesTableDataSource {
+  func makeMockCell(for tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+    tableView.dequeueReusableCell(
+        withIdentifier: NotesTableViewCell.id,
+        for: indexPath
+    )
   }
 }

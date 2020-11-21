@@ -20,6 +20,8 @@
 		81D15FEB251F8F020032C584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D15FE9251F8F020032C584 /* LaunchScreen.storyboard */; };
 		81F12F782534D70300228D8C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F12F772534D70300228D8C /* DataService.swift */; };
 		81F12F7C25350D6B00228D8C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F12F7B25350D6B00228D8C /* CustomTextField.swift */; };
+		988B42CA698B50A3AA18BF3E /* NSLayoutConstraint+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B4895E26A2416D98B797E /* NSLayoutConstraint+Builder.swift */; };
+		988B49E1C577002507CA61C4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988B4B28F089BDCC6B50E84B /* UIView.swift */; };
 		CA5EACE9395A94EC72A17C39 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EA60B511BB6A3C28250F7 /* NoteViewController.swift */; };
 		CA5EAEC79D3DF0B82D238457 /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EAA78B01A71473D08A421 /* NoteTextView.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		81D15FEC251F8F020032C584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81F12F772534D70300228D8C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		81F12F7B25350D6B00228D8C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		988B4895E26A2416D98B797E /* NSLayoutConstraint+Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Builder.swift"; sourceTree = "<group>"; };
+		988B4B28F089BDCC6B50E84B /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CA5EA60B511BB6A3C28250F7 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		CA5EAA78B01A71473D08A421 /* NoteTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				81F12F7B25350D6B00228D8C /* CustomTextField.swift */,
+				988B4895E26A2416D98B797E /* NSLayoutConstraint+Builder.swift */,
+				988B4B28F089BDCC6B50E84B /* UIView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -224,6 +230,8 @@
 				819203712520BC4500F54AB8 /* NotesTableViewController.swift in Sources */,
 				CA5EACE9395A94EC72A17C39 /* NoteViewController.swift in Sources */,
 				CA5EAEC79D3DF0B82D238457 /* NoteTextView.swift in Sources */,
+				988B42CA698B50A3AA18BF3E /* NSLayoutConstraint+Builder.swift in Sources */,
+				988B49E1C577002507CA61C4 /* UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

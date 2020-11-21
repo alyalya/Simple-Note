@@ -8,9 +8,6 @@ class DataService {
       text: "ну ничего страшного пау пау пау пау пау пау пау пау"
     ),
   ]
-  
-  static var shared: DataService = {
-    let instance = DataService()
-    return instance
-  }()
+
+  static var shared = DataService()
 }

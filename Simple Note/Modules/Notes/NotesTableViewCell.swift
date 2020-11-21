@@ -2,24 +2,26 @@ import UIKit
 
 class NotesTableViewCell: UITableViewCell {
   private lazy var label = makeLabel()
-  
+
+  static let id = "TableViewCell"
+
   override func prepareForReuse() {
     super.prepareForReuse()
     accessoryType = .none
   }
-  
+
   func setup(data: NoteData?) {
     label.text = data?.title
     configure()
   }
-  
+
   func makeLabel() -> UILabel {
     let label = UILabel()
     label.textColor = .darkGray
     label.font = UIFont.systemFont(ofSize: 25)
     return label
   }
-  
+
   func configure() {
     label.translatesAutoresizingMaskIntoConstraints = false
     addSubview(label)
