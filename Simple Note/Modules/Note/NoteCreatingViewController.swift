@@ -96,8 +96,16 @@ private extension NoteCreatingViewController {
   }
 
   func showAlert() {
-    let alert = UIAlertController(title: "🥳", message: "Твоя заметка сохранена", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "🤝", style: .default, handler: nil))
+    let alert = UIAlertController(
+      title: "🥳",
+      message: "Твоя заметка сохранена",
+      preferredStyle: .alert
+    )
+    alert.addAction(UIAlertAction(
+      title: "🤝",
+      style: .default,
+      handler: nil)
+    )
     present(alert, animated: true, completion: nil)
   }
 

@@ -26,7 +26,8 @@ class NoteTextView: UITextView {
 		font = .systemFont(ofSize: 25)
 		layer.cornerRadius = 5
 		text = "Add your note's text here"
-		textColor = initialText != nil ? .black : UIColor.lightGray.withAlphaComponent(0.8)
+		textColor =
+			initialText != nil ? .black : UIColor.lightGray.withAlphaComponent(0.8)
 	}
 }
 
